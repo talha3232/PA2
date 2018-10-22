@@ -17,7 +17,8 @@ typedef struct ListObj* List;
 List newList(void);
 void freeList(List* pL);
 
-
+// temporary FIXME
+int isEmpty(List L);
 // Access functions -----------------------------------------------------------
 
 int length(List L);
