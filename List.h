@@ -1,52 +1,63 @@
 //-----------------------------------------------------------------------------
-// Talha Baqar
-// Queue.h from examples now List.h
-// Header file for List ADT
+// Queue.h now List.h
+// Header file for Queue ADT
 //-----------------------------------------------------------------------------
 
-#ifndef _LIST_H_INCLUDE_
-#define _LIST_H_INCLUDE_
+#ifndef _QUEUE_H_INCLUDE_
+#define _QUEUE_H_INCLUDE_
 
 
 // Exported type --------------------------------------------------------------
-typedef struct ListObj* List;
+typedef struct QueueObj* Queue;
 
 
 // Constructors-Destructors ---------------------------------------------------
 
-List newList(void);
-void freeList(List* pL);
+// newQueue()
+// Returns reference to new empty Queue object.
+Queue newQueue(void);
+
+// freeQueue()
+// Frees all heap memory associated with Queue *pQ, and sets *pQ to NULL.
+void freeQueue(Queue* pQ);
 
 
 // Access functions -----------------------------------------------------------
 
-int length(List L);
-int index(List L);
-int front(List L);
-int back(List L);
-int get(List L);
-int equals(List A, List B);
+// getFront()
+// Returns the value at the front of Q.
+// Pre: !isEmpty(Q)
+int getFront(Queue Q);
+
+// getLength()
+// Returns the length of Q.
+int getLength(Queue Q);
+
+// isEmpty()
+// Returns true (1) if Q is empty, otherwise returns false (0)
+int isEmpty(Queue Q);
 
 
 // Manipulation procedures ----------------------------------------------------
 
-void clear(List L);
-void moveFront(List L);
-void moveBack(List L);
-void movePrev(List L);
-void moveNext(List L);
-void prepend(List L, int data);
-void append(List L, int data);
-void insertBefore(List L, int data);
-void insertAfter(List L, int data);
-void deleteFront(List L);
-void deleteBack(List L);
-void delete(List L);
+// Enqueue()
+// Places new data element at the end of Q
+void Enqueue(Queue Q, int data);
+
+// Dequeue()
+// Deletes element at front of Q
+// Pre: !isEmpty(Q)
+void Dequeue(Queue Q);
 
 
 // Other Functions ------------------------------------------------------------
 
-void printList(FILE* out, List L);
-List copyList(List L);
+// printQueue()
+// Prints data elements in Q on a single line to stdout.
+void printQueue(Queue Q);
+
+// equals()
+// returns true (1) if A is identical to B, false (0) otherwise
+int equals(Queue A, Queue B);
 
 #endif
